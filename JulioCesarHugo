@@ -1,0 +1,52 @@
+package juliocesar;
+
+import java.util.Scanner;
+
+public class JulioCesar {
+private String cadenaOriginal;
+
+    public JulioCesar(String cadena) {
+        this.cadenaOriginal=cadena;
+    }
+    
+    public static void main(String[] args) {
+        Scanner sc= new Scanner(System.in);
+        System.out.println("Ingresa una palabra para encriptar");
+        String cadena=sc.nextLine();
+        
+        JulioCesar palabra= new JulioCesar(cadena);
+        palabra.encriptar();
+        palabra.desencriptar();
+    }  
+    
+    public void encriptar(){
+    String [] cadenaEncriptada = new String [cadenaOriginal.length()];
+    
+     for(int i=0;i<cadenaOriginal.length();i++){
+      cadenaEncriptada[i]=String.valueOf(cadenaOriginal.charAt(i));
+    }
+     System.out.print("La palabra encriptada es: ");
+    for(int i=0;i<cadenaOriginal.length();i++){
+        char letra=cadenaEncriptada[i].charAt(0);
+        if(cadenaEncriptada[i].charAt(0)==' '){
+            letra=' ';
+        }else if(cadenaEncriptada[i].charAt(0)=='x'){
+            letra='a';
+        }else if(cadenaEncriptada[i].charAt(0)=='y'){
+            letra='b';
+        }else if(cadenaEncriptada[i].charAt(0)=='z'){
+            letra='c';
+        }else{
+        letra+=3;
+        }
+        
+    System.out.print(letra);
+  }    
+    System.out.println();
+        }
+   
+    public void desencriptar(){
+     System.out.println("La palabra desencriptada es: "+cadenaOriginal+"\n");
+    }
+}
+
